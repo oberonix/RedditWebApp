@@ -1,0 +1,20 @@
+.post, .pagination {
+  clear: both;
+  margin: 10px 0;
+}
+.thumbnail {
+  width: 70px;
+  position: relative;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.default-thumbnail {
+  background-image: url(https://www.redditstatic.com/sprite-reddit.bTLvdEETokI.png);
+  background-position: 0px -1267px;
+  background-repeat: no-repeat;
+  height: 50px;
+}
+
+.message {
+  margin: 10px 0;
+}

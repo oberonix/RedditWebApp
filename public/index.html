@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="redditApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="reddit.js"></script>
+    <link rel="stylesheet" href="reddit.css">
+  </head>
+  <body>
+    <h2>Reddit Viewer</h2>
+    <div ng-controller="RedditController as reddit">
+      <form ng-submit="reddit.submitNewSubReddit()">
+        <input type="text" ng-model="reddit.subRedditName"  size="30" placeholder="Enter subreddit name">
+        <input class="btn-primary" type="submit" value="go">
+      </form>
+      <div class="post-list">
+        <div ng-if="reddit.noPosts" class="message">
+          No posts found.
+        </div>
+        <div ng-if="reddit.loading" class="message">
+          Loading...
+        </div>
+        <div ng-if="reddit.error" class="message">
+          There was an error fetching your data.
+        </div>
+        <div class="post" ng-repeat="post in reddit.posts">
+          <a href="{{post.url}}">
+            <img ng-if="post.thumbnail" ng-src="{{post.thumbnail}}" class="thumbnail"/>
+            <span ng-if="!post.thumbnail" href="" class="thumbnail default-thumbnail">
+            </span>
+            {{post.title}}
+          </a>
+          <div>
+            {{post.ups}} up votes - by: {{post.author}} - {{post.created | date: 'medium'}}
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <button ng-if="reddit.before" ng-click="reddit.loadPreviousPage()">
+          prev
+        </button>
+        <button ng-if="reddit.after" ng-click="reddit.loadNextPage()">
+          next
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

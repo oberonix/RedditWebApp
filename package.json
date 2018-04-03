@@ -1,0 +1,16 @@
+{
+  "name": "redditwebapp",
+  "version": "1.0.0",
+  "description": "A quick application for browsing Reddit.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "author": "Scott Moore",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "request": "^2.85.0"
+  }
+}
