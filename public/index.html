@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="pagination">
+      <div class="pagination" ng-if="!reddit.loading">
         <button ng-if="reddit.before" ng-click="reddit.loadPreviousPage()">
           prev
         </button>

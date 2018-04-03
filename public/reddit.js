@@ -1,3 +1,4 @@
+/*global angular*/
 angular.module('redditApp', []).controller('RedditController', function($scope, $http) {
   var reddit = this;
   reddit.subRedditName = '';
@@ -44,8 +45,7 @@ angular.module('redditApp', []).controller('RedditController', function($scope, 
         reddit.noPosts = true;
       }
       reddit.loading = false;
-    }).catch(function(err) {
-      console.error(err);
+    }).catch(function() {
       reddit.error = true;
       reddit.loading = false;
     });
